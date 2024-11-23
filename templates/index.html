@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="shortcut icon" href="{{ url_for('static',filename='images/python.svg') }}" type="image/x-icon">
+    <title>{% block title %} Creacion de graficos con seaborn y matplotlib {% endblock %}</title>
+</head>
+
+<body class="p-20 space-y-8">
+    <nav class="w-full flex justify-center relative">
+        <ul class="flex w-5/6 justify-end gap-12">
+
+            <li class="absolute left-0 -top-3">
+                <a href="" title="Logo de la pagina">
+                    <img class="size-12" src="{{ url_for('static',filename='images/python.svg') }}"
+                        alt="logo de la pagina" title="Logo de la pagina">
+                </a>
+            </li>
+            <li>
+                <a href="https://seaborn.pydata.org/" target="_blank" title="ir a la pagina principal de Seaorn"
+                    class="group relative bg-slate-500 hover:bg-zinc-400 p-3 rounded">
+                    <span>Seaborn</span>
+                    <div
+                        class="bg-slate-900  p-2 rounded-md group-hover:flex hidden absolute -top-2 -translate-y-full left-1/2 -translate-x-1/2">
+                        <span class="text-slate-300 whitespace-nowrap">ir a la pagina principal de Seaorn</span>
+                        <div
+                            class="bg-inherit rotate-45 p-1 absolute bottom-0 translate-y-1/2 left-1/2 -translate-x-1/2">
+                        </div>
+                    </div>
+                </a>
+            </li>
+
+            <li class="">
+                <a target="_blank" href="https://matplotlib.org/"
+                    class="group relative bg-slate-500 hover:bg-zinc-400 p-3 rounded">
+                    <span>Matplotlib</span>
+                    <div
+                        class="bg-slate-900 p-2 rounded-md group-hover:flex hidden absolute -top-2 -translate-y-full left-1/2 -translate-x-1/2">
+                        <span class="text-slate-300 whitespace-nowrap">ir a la pagina principal de Matplotlib</span>
+                        <div
+                            class="bg-inherit rotate-45 p-1 absolute bottom-0 translate-y-1/2 left-1/2 -translate-x-1/2">
+                        </div>
+                    </div>
+                </a>
+
+            </li>
+
+        </ul>
+    </nav>
+
+    <section class="lg:flex block  gap-2 shadow-stone-400 p-2 space-y-4">
+
+        <div class="lg:w-2/4 text-xl ">
+            <h1 class="text-5xl font-normal mt-6">Top 10 ciudades mayor mercado comercial</h1>
+            <p class="mt-3">
+                Representamos las ciudades agrupadas por el top 10 de manejo comercial y su alcance en la escala del
+                dinero
+                obtenido que gracias a un modelo de barras intuitivo y amigable es facil de apreciar que <span
+                    class="font-medium text-violet-900">New York</span>
+                sobre paso
+                el tope de <strong class="font-medium">250,000 mil</strong>
+            </p>
+        </div>
+        <div class=" lg:min-h-[118px] lg:min-w-44 lg:w-3/6 ">
+            <img class="size-full" src="{{ url_for('static',filename='images/city_sales.png') }}" alt="">
+        </div>
+    </section>
+
+    <section class="lg:flex gap-2 p-2 space-y-4">
+        <div class="order-2 lg:w-2/4 font-normal ">
+            <h2 class="text-4xl mt-[1.30rem]">Distribución de las ventas</h2>
+
+            <p class="mt-2 text-xl">Este tipo de tados no tiene una distribución de sentido normal o clásico.Pero
+                es
+                una
+                visualización de <strong class="font-medium text-green-800">como se distribuyen las ventas</strong> a lo
+                largo de todas
+                las ciudades, esto nos permite conocer mas informacion como que ciudades acabaron primero la demanda o
+                etc.
+            </p>
+        </div>
+        <div class="h-auto lg:w-2/4">
+            <img class="size-full" src="{{ url_for('static',filename='images/graph_city_price_distribution.webp') }}"
+                alt="">
+        </div>
+    </section>
+
+    <section class="lg:flex flex-col items-center  gap-2 p-2 space-y-4">
+        <div class="text-normal  w-full lg:w-4/6">
+            <h3 class="text-3xl lg:text-center font-normal">Caja de conteo total</h3>
+            <p class="text-start lg:text-center text-xl mt-2">Se emplea para una facilidad de entendimiento sencilla y
+                completa dando
+                como
+                resultado una
+                caja de
+                entidades a las que se les atribuyen su cuenta correspondiente, y una barra lateral para llevar una
+                cuenta global de las entidades</p>
+        </div>
+        <div class="h-auto w-full">
+
+            <img class="size-full" src="{{ url_for('static',filename='images/total_sales.webp') }}" alt="">
+        </div>
+
+    </section>
+</body>
+
+</html>
