@@ -1,0 +1,113 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    background: linear-gradient(180deg, #f9f9f9, #e3f2fd);
+    color: #333;
+    overflow-x: hidden;
+    padding: 20px;
+}
+
+.blog-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #1e88e5;
+    text-align: center;
+    margin: 20px 0;
+    animation: fadeIn 1.5s ease-in-out;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    transition: color 0.3s ease;
+}
+
+.blog-title:hover {
+    color: #0d47a1;
+}
+
+.image-container img {
+    border-radius: 15px;
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.image-container img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.3);
+}
+
+.text-section {
+    padding: 20px;
+    background: linear-gradient(145deg, #ffffff, #e3f2fd);
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    animation: fadeIn 1.5s ease-in-out;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.text-section:hover {
+    transform: translateY(-5px);
+    background-color: #f1f8e9;
+}
+
+.highlight {
+    color: #e53935;
+    font-weight: bold;
+    background: #ffe9e9;
+    padding: 2px 4px;
+    border-radius: 5px;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.divider {
+    height: 2px;
+    background: linear-gradient(to right, #42a5f5, #ab47bc);
+    margin: 20px 0;
+    border: none;
+}
+
+button {
+    background: linear-gradient(45deg, #1e88e5, #42a5f5);
+    color: #fff;
+    border: none;
+    border-radius: 25px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+button:hover {
+    background: linear-gradient(45deg, #0d47a1, #1e88e5);
+    transform: scale(1.05);
+}
+
+
+footer {
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+footer a {
+    color: #1e88e5;
+    transition: color 0.3s ease;
+}
+
+footer a:hover {
+    color: #0d47a1;
+}

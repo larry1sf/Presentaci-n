@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    <title>Tendencias del COVID-19</title>
+    <link rel="stylesheet" href="static/css/style.css">
+    <link rel="icon" href="static/images/news.ico">
+</head>
+
+<body>
+    <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="{{ url_for('static',filename='index.html') }}">COVID Noticias</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#casos">Casos por Millón</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#evolucion">Evolución de Casos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#recuperados">Recuperados vs Fallecidos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#mortalidad">Tasa de Mortalidad</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <h1 class="blog-title">Tendencias del COVID-19</h1>
+        <hr class="divider">
+
+        <!-- Primera sección: Casos por Millón -->
+        <div class="row align-items-center mb-4" id="casos">
+            <div class="col-md-6">
+                <div class="image-container">
+                    <img src="{{ url_for('static', filename='images/casos_por_millon.png') }}" alt="Casos por millón"
+                        class="img-fluid">
+                </div>
+            </div>
+            <div class="col-md-6 text-section">
+                <h2>Casos por Millón de Habitantes</h2>
+                <p>
+                    Este gráfico muestra un <span class="highlight">crecimiento constante</span> en los casos reportados
+                    por millón de habitantes...
+                </p>
+                <button class="toggle-btn" data-target="info1">Leer más</button>
+                <div id="info1" class="extra-info" style="display: none;">
+                    <p>
+                        La propagación del virus ha sido más notable en áreas densamente pobladas, lo que destaca la
+                        importancia de implementar estrategias locales específicas...
+                    </p>
+                </div>
+            </div>
+        </div>
+        <hr class="divider">
+
+        <!-- Segunda sección: Evolución de Casos -->
+        <div class="row align-items-center mb-4" id="evolucion">
+            <div class="col-md-6 text-section">
+                <h2>Evolución de los Casos Confirmados</h2>
+                <p>Los datos reflejan un <span class="highlight">incremento continuo</span>...</p>
+                <button class="toggle-btn" data-target="info2">Ver detalles</button>
+                <div id="info2" class="extra-info" style="display: none;">
+                    <p>
+                        El aumento en los casos activos ha llevado a la saturación de hospitales en varias regiones. Las
+                        estrategias de mitigación como...
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="image-container">
+                    <img src="{{ url_for('static', filename='images/evolucion_casos.png') }}" alt="Evolución de Casos"
+                        class="img-fluid">
+                </div>
+            </div>
+        </div>
+        <hr class="divider">
+
+        <!-- Tercera sección: Recuperados vs Fallecidos -->
+        <div class="row align-items-center mb-4" id="recuperados">
+            <div class="col-md-6">
+                <div class="image-container">
+                    <img src="{{ url_for('static', filename='images/proporcion_recuperados_fallecidos.png') }}"
+                        alt="Recuperados vs Fallecidos" class="img-fluid">
+                </div>
+            </div>
+            <div class="col-md-6 text-section">
+                <h2>Proporción de Recuperados vs Fallecidos</h2>
+                <p>
+                    A pesar de que los recuperados representan la mayor proporción de casos, los fallecidos constituyen
+                    una fracción preocupante. Este análisis resalta la necesidad de continuar reforzando el sistema de
+                    atención médica y los recursos sanitarios.
+                </p>
+            </div>
+        </div>
+        <hr class="divider">
+
+        <!-- Cuarta sección: Tasa de Mortalidad -->
+        <div class="row align-items-center mb-4" id="mortalidad">
+            <div class="col-md-6 text-section">
+                <h2>Tasa de Mortalidad</h2>
+                <p>
+                    La tasa de mortalidad muestra una <span class="highlight">tendencia decreciente</span> en los días
+                    recientes, probablemente debido al aumento en la disponibilidad de tratamientos y a la cobertura de
+                    la vacunación. Sin embargo, se debe mantener la vigilancia epidemiológica.
+                </p>
+            </div>
+            <div class="col-md-6">
+                <div class="image-container">
+                    <img src="{{ url_for('static', filename='images/tasa_mortalidad.png') }}" alt="Tasa de Mortalidad"
+                        class="img-fluid">
+                </div>
+            </div>
+        </div>
+        <hr class="divider">
+        <!-- Conclusión -->
+        <div class="row">
+            <div class="col text-section">
+                <h2>Conclusión</h2>
+                <ul>
+                    <li><strong>Tendencia general:</strong> Incrementos constantes en casos confirmados y recuperados,
+                        mientras los fallecimientos se estabilizan.</li>
+                    <li><strong>Tasa de mortalidad:</strong> Reducción gradual en los últimos días.</li>
+                    <li><strong>Casos por millón:</strong> Indicador crítico para entender la propagación en comunidades
+                        específicas.</li>
+                </ul>
+                <p>
+                    Los esfuerzos para controlar el virus deben mantenerse enfocados en la vacunación, el rastreo de
+                    contactos y las medidas preventivas. La cooperación global es clave para mitigar futuras olas de
+                    contagios.
+                </p>
+            </div>
+        </div>
+
+        <footer class="text-center py-4 bg-light">
+            <p>© 2024 COVID Noticias. Todos los derechos reservados.</p>
+            <div>
+                <a href="#" class="text-dark me-3"><i class="bi bi-facebook"></i></a>
+                <a href="#" class="text-dark me-3"><i class="bi bi-twitter"></i></a>
+                <a href="#" class="text-dark"><i class="bi bi-instagram"></i></a>
+            </div>
+        </footer>
+    </div>
+    <script>
+        // Scroll suave al hacer clic en los enlaces
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', event => {
+                event.preventDefault(); // Previene el comportamiento predeterminado
+                const sectionId = link.getAttribute('href').substring(1);
+                document.getElementById(sectionId).scrollIntoView({
+                    behavior: 'smooth', // Efecto de desplazamiento suave
+                    block: 'start' // Alinea la sección al inicio
+                });
+            });
+        });
+
+    </script>
+    <script src="{{url_for('static',filename='js/app.js')}}"></script>
+</body>
+
+</html>

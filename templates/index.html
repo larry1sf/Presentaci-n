@@ -5,27 +5,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="shortcut icon" href="{{ url_for('static',filename='images/python.svg') }}" type="image/x-icon">
+    <link rel="shortcut icon" href="{{ url_for('static',filename='images/news.ico') }}" type="image/x-icon">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+
     <title>{% block title %} Creacion de graficos con seaborn y matplotlib {% endblock %}</title>
 </head>
 
-<body class="p-20 space-y-8">
-    <nav class="w-full flex justify-center relative">
-        <ul class="flex w-5/6 justify-end gap-12">
+<body class="p-10 space-y-8 ">
+    <nav class="sticky top-0 z-20 w-full flex justify-center ">
+        <ul
+            class="relative min-w-[320px] flex w-full p-1 justify-between lg:justify-end gap-[10%] h-[56px] bg-[#0d6efd] ">
 
-            <li class="absolute left-0 -top-3">
-                <a href="" title="Logo de la pagina">
-                    <img class="size-12" src="{{ url_for('static',filename='images/python.svg') }}"
+            <li class=" w-auto">
+                <a href=""
+                    class="relative lg:absolute left-3 flex text-white items-center text-2xl font-normal space-x-1"
+                    title="Logo de la pagina">
+                    <img class="size-12 mr-4  " src="{{ url_for('static',filename='images/news.ico') }}"
                         alt="logo de la pagina" title="Logo de la pagina">
+                    Comercio <span class="font-light"> Noticias</span>
                 </a>
             </li>
-            <li>
-                <a href="https://seaborn.pydata.org/" target="_blank" title="ir a la pagina principal de Seaorn"
-                    class="group relative bg-slate-500 hover:bg-zinc-400 p-3 rounded">
-                    <span>Seaborn</span>
+            <li class="group font-medium relative  hidden lg:block  p-3 rounded">
+                <a href="#distribucion" title="ir a la pagina principal de Seaorn">
+                    <span class="text-slate-400 group-hover:text-slate-300 transition">Distribucion</span>
                     <div
-                        class="bg-slate-900  p-2 rounded-md group-hover:flex hidden absolute -top-2 -translate-y-full left-1/2 -translate-x-1/2">
-                        <span class="text-slate-300 whitespace-nowrap">ir a la pagina principal de Seaorn</span>
+                        class="bg-slate-900 transition p-2 rounded-md group-hover:opacity-100 duration-300 opacity-0 absolute -top-2 -translate-y-full left-1/2 -translate-x-1/2">
+                        <span class="text-slate-300 whitespace-nowrap">ir a la seccion de distribucion</span>
                         <div
                             class="bg-inherit rotate-45 p-1 absolute bottom-0 translate-y-1/2 left-1/2 -translate-x-1/2">
                         </div>
@@ -33,13 +38,25 @@
                 </a>
             </li>
 
-            <li class="">
-                <a target="_blank" href="https://matplotlib.org/"
-                    class="group relative bg-slate-500 hover:bg-zinc-400 p-3 rounded">
-                    <span>Matplotlib</span>
+            <li class="group font-medium relative  hidden lg:block p-3 rounded">
+                <a href="#caja">
+                    <span class="text-slate-400 group-hover:text-slate-300 transition">Ver la modelo de caja</span>
                     <div
-                        class="bg-slate-900 p-2 rounded-md group-hover:flex hidden absolute -top-2 -translate-y-full left-1/2 -translate-x-1/2">
-                        <span class="text-slate-300 whitespace-nowrap">ir a la pagina principal de Matplotlib</span>
+                        class="bg-slate-900 transition p-2 rounded-md group-hover:opacity-100 duration-300 opacity-0 absolute -top-2 -translate-y-full left-1/2 -translate-x-1/2">
+                        <span class="text-slate-300 whitespace-nowrap">Ver documentacion de Matplotlib</span>
+                        <div
+                            class="bg-inherit rotate-45 p-1 absolute bottom-0 translate-y-1/2 left-1/2 -translate-x-1/2">
+                        </div>
+                    </div>
+                </a>
+
+            </li>
+            <li class="group font-medium relative me-[10%] hidden lg:block p-3 rounded">
+                <a href="covid">
+                    <span class="text-slate-400 group-hover:text-slate-300 transition">Covid</span>
+                    <div
+                        class="bg-slate-900 transition p-2 rounded-md group-hover:opacity-100 duration-300 opacity-0 absolute -top-2 -translate-y-full left-1/2 -translate-x-1/2">
+                        <span class="text-slate-300 whitespace-nowrap">Ver mas sobre el Covid-19</span>
                         <div
                             class="bg-inherit rotate-45 p-1 absolute bottom-0 translate-y-1/2 left-1/2 -translate-x-1/2">
                         </div>
@@ -48,29 +65,54 @@
 
             </li>
 
+            <li class="flex items-center lg:hidden mr-2 mt-1">
+
+                <label class="flex peer flex-col gap-2  size-8 z-10">
+                    <input class="peer hidden" type="checkbox" />
+                    <div
+                        class="rounded-2xl h-[3px] w-1/2 bg-white select-none duration-500 peer-checked:rotate-[225deg] origin-right peer-checked:-translate-x-[12px] peer-checked:-translate-y-[1px]">
+                    </div>
+                    <div class="rounded-2xl h-[3px] w-full bg-white select-none duration-500 peer-checked:-rotate-45">
+                    </div>
+                    <div
+                        class="rounded-2xl h-[3px] w-1/2 bg-white select-none duration-500 place-self-end peer-checked:rotate-[225deg] origin-left peer-checked:translate-x-[12px] peer-checked:translate-y-[1px]">
+                    </div>
+                </label>
+                <div
+                    class="peer-has-[:checked]:h-auto peer-has-[:checked]:w-full absolute  sm:-bottom-16 -bottom-36 right-0 peer-has-[:checked]:bg-white peer-has-[:checked]:opacity-100 opacity-0 size-auto transition duration-500 transition-transform duration-700  z-0 flex justify-center items-center">
+                    <ul class="  flex flex-col  sm:flex-row text-center font-medium gap-4 *:text-slate-500 m-1">
+                        <li><a href="">Volver al Inicio</a></li>
+                        <li>Lugar con mayor distribucion</li>
+                        <li>Lugares con mayores compras de <span class="text-nowrap">New York</span></li>
+                        <li>Estadisticas totales de Philadelphia</li>
+                    </ul>
+                </div>
+            </li>
         </ul>
     </nav>
 
-    <section class="lg:flex block  gap-2 shadow-stone-400 p-2 space-y-4">
+    <section id="distribucion" class="lg:flex block  gap-2  p-2 space-y-4 border-t border-sky-600/80">
 
-        <div class="lg:w-2/4 text-xl ">
+        <div class="lg:w-2/4 text-xl hover:translate-x-1 hover:-translate-y-2 transition shadow-xl cursor-pointer">
             <h1 class="text-5xl font-normal mt-6">Top 10 ciudades mayor mercado comercial</h1>
             <p class="mt-3">
                 Representamos las ciudades agrupadas por el top 10 de manejo comercial y su alcance en la escala del
                 dinero
-                obtenido que gracias a un modelo de barras intuitivo y amigable es facil de apreciar que <span
-                    class="font-medium text-violet-900">New York</span>
-                sobre paso
-                el tope de <strong class="font-medium">250,000 mil</strong>
+                obtenido que mediante un modelo de barras...
             </p>
+            <button
+                class="border border-2 border-sky-600 py-1 px-2 bg-sky-600 hover:bg-transparent hover:text-sky-600 transition text-white my-4"
+                type="button"> Leer mas</button>
         </div>
-        <div class=" lg:min-h-[118px] lg:min-w-44 lg:w-3/6 ">
-            <img class="size-full" src="{{ url_for('static',filename='images/city_sales.png') }}" alt="">
+        <div class=" lg:min-h-[118px] lg:min-w-44 lg:w-3/6 shadow-xl overflow-hidden cursor-crosshair">
+            <img class="size-full hover:scale-105 transition"
+                src="{{ url_for('static',filename='images/city_sales.png') }}" alt="">
         </div>
     </section>
 
-    <section class="lg:flex gap-2 p-2 space-y-4">
-        <div class="order-2 lg:w-2/4 font-normal ">
+    <section id="caja" class="lg:flex gap-2 p-2 space-y-4 border-t border-sky-600/80">
+        <div
+            class="order-2 lg:w-2/4 font-normal hover:translate-x-1 hover:-translate-y-2 transition cursor-pointer shadow-xl">
             <h2 class="text-4xl mt-[1.30rem]">Distribución de las ventas</h2>
 
             <p class="mt-2 text-xl">Este tipo de tados no tiene una distribución de sentido normal o clásico.Pero
@@ -78,33 +120,49 @@
                 una
                 visualización de <strong class="font-medium text-green-800">como se distribuyen las ventas</strong> a lo
                 largo de todas
-                las ciudades, esto nos permite conocer mas informacion como que ciudades acabaron primero la demanda o
-                etc.
+                las ciudades...
             </p>
+            <button
+                class="border border-2 border-sky-600 py-1 px-2 bg-sky-600 hover:bg-transparent hover:text-sky-600 transition text-white my-4 text-xl"
+                type="button"> Leer mas</button>
         </div>
-        <div class="h-auto lg:w-2/4">
-            <img class="size-full" src="{{ url_for('static',filename='images/graph_city_price_distribution.webp') }}"
-                alt="">
+        <div class="h-auto lg:w-2/4 overflow-hidden cursor-crosshair shadow-xl">
+            <img class="size-full hover:scale-105 transition"
+                src="{{ url_for('static',filename='images/graph_city_price_distribution.webp') }}" alt="">
         </div>
     </section>
 
-    <section class="lg:flex flex-col items-center  gap-2 p-2 space-y-4">
-        <div class="text-normal  w-full lg:w-4/6">
-            <h3 class="text-3xl lg:text-center font-normal">Caja de conteo total</h3>
-            <p class="text-start lg:text-center text-xl mt-2">Se emplea para una facilidad de entendimiento sencilla y
-                completa dando
-                como
-                resultado una
-                caja de
-                entidades a las que se les atribuyen su cuenta correspondiente, y una barra lateral para llevar una
-                cuenta global de las entidades</p>
-        </div>
-        <div class="h-auto w-full">
+    <section class="lg:flex flex-col items-center  gap-2 p-4 space-y-4 border-t border-sky-600/80">
+        <div class=" cursor-pointer shadow-xl">
+            <div class="text-normal  w-full">
+                <h3 class="text-3xl lg:text-center font-normal">Caja de conteo total</h3>
+                <p class="text-start lg:text-center text-xl mt-2">Se emplea para una facilidad de entendimiento sencilla
+                    y
+                    completa dando
+                    como
+                    resultado una
+                    caja de
+                    entidades a las que se les atribuyen su cuenta correspondiente, y una barra lateral para llevar una
+                    cuenta global de las entidades</p>
+            </div>
+            <div class="h-auto w-full cursor-crosshair  overflow-hidden">
 
-            <img class="size-full" src="{{ url_for('static',filename='images/total_sales.webp') }}" alt="">
+                <img class="size-full hover:scale-105 transition"
+                    src="{{ url_for('static',filename='images/total_sales.webp') }}" alt="">
+            </div>
         </div>
+
 
     </section>
+
+    <footer class="flex flex-col items-center space-y-4">
+        <p class="mt-16 text-center text-lg ">© 2024 Comercio Noticias. Todos los derechos reservados.</p>
+        <div class="flex max-w-xl gap-4 justify-center scale-125">
+            <i class="fa-brands fa-facebook cursor-pointer select-none"></i>
+            <i class="fa-brands fa-linkedin cursor-pointer select-none"></i>
+            <i class="fa-brands fa-github cursor-pointer select-none"></i>
+        </div>
+    </footer>
 </body>
 
 </html>
